@@ -1,4 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
-    {{ context }}
+    {% for element in object_list %}
+        {{ element.name}}
+        {{ element.author }}
+        {{ element.create_date}}
+        {{ element.modify_date}}
+        {{ element.ingredients }}
+    {% endfor %}
 {% endblock %}
