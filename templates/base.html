@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}
+    {% if not title %}
+    <title>Kitchen Recipes</title>
+    {% else %}
+    <title>Kitchen Recipes - {{ title }}</title>
+    {% endif %}
+    {% endblock %}
+</head>
+<body>
+{% block content %}
+{% endblock %}
+</body>
+</html>
