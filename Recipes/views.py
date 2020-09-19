@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.generic import ListView, CreateView, DetailView
 from .models import Recipe
 from .forms import CreateRecipeForm,CreateCommentForm
-
+from  django.shortcuts import redirect
 
 # Create your views here.
 
@@ -28,3 +28,6 @@ class ShowRecipe(DetailView):
         context["comments"] = Recipe.objects.filter(pk=self.kwargs["pk"])
         context["form"] = CreateCommentForm()
         return context
+
+    def post(self,request,pk=0):
+        return redirect(ShowRecipe,pk=self.kwargs["pk"])
