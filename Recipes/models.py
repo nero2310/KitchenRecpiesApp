@@ -19,4 +19,9 @@ class Comment(models.Model):
     create_date = models.DateTimeField(auto_now_add=True)
     up_vote = models.IntegerField(default=0)
     down_vote = models.IntegerField(default=0)
+    
+    class Meta:
+        db_table = "Comments"
 
+    def __str__(self):
+        return self.content

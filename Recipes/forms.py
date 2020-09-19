@@ -1,5 +1,5 @@
 from django import forms
-from .models import Recipe,Comment
+from .models import Recipe, Comment
 
 
 # class CreateRecipe(forms.Form):
@@ -13,10 +13,12 @@ from .models import Recipe,Comment
 class CreateRecipeForm(forms.ModelForm):
     class Meta:
         model = Recipe
-        fields = ['name','author','ingredients']
+        fields = ['name', 'author', 'ingredients']
 
 
 class CreateCommentForm(forms.ModelForm):
     class Meta:
         model = Comment
-        fields = ["content","author","up_vote","down_vote"]
+        fields = ["recipe_id", "content", "author", "up_vote", "down_vote"]
+        exclude = ("recipe_id",)
+
