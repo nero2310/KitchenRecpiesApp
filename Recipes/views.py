@@ -1,8 +1,8 @@
-from django.shortcuts import render
 from django.views.generic import ListView, CreateView, DetailView
-from .models import Recipe,Comment
-from .forms import CreateRecipeForm,CreateCommentForm
-from  django.shortcuts import redirect
+from .models import Recipe
+from Comments.models import Comment
+from .forms import CreateRecipeForm
+from Comments.forms import CreateCommentForm
 from django.views.generic.edit import FormView
 
 # Create your views here.

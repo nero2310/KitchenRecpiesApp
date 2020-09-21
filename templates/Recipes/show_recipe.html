@@ -17,9 +17,9 @@
     <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" value="Add recipe">
+    <input type="submit" value="Add comment">
     {% for comment in comments %}
-        {{ comment }}
+        {{ comment.content }}
     {% endfor %}
 {% endfor %}
 {% endblock %}
