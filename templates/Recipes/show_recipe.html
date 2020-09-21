@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+{% for element in recipe %}
+    {{ element.name }}
+    <br>
+    {{ element.create_date }}
+    <br>
+    {{ element.modify_date }}
+    <br>
+    {{ element.author }}
+    <br>
+    {% for ingridient in element.ingredients %}
+        {{ ingridient }}
+        <br>
+    {% endfor %}
+    <br>
+    <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Add recipe">
+    {% for comment in comments %}
+        {{ comment }}
+    {% endfor %}
+{% endfor %}
+{% endblock %}
