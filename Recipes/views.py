@@ -25,7 +25,7 @@ class ShowRecipe(FormView):
     success_url = '/recipes'
 
     def get_object(self):
-        return Recipe.objects.filter(pk=self.kwargs['pk'])
+        return Recipe.objects.get(pk=self.kwargs['pk'])
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
