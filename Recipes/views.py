@@ -1,3 +1,5 @@
+from django.core.exceptions import ObjectDoesNotExist
+from django.http import Http404
 from django.views.generic import ListView, CreateView
 from django.views.generic.edit import FormView
 # My forms/models
@@ -26,7 +28,11 @@ class ShowRecipe(FormView):
     success_url = '/recipes'
 
     def get_object(self):
-        return Recipe.objects.get(pk=self.kwargs['pk'])
+        try:
+            object = Recipe.objects.get(pk=self.kwargs['pk'])
+        except ObjectDoesNotExist:
+            raise Http404(f"Recipe {self.kwargs['pk']} doesn't exist")
+        return object
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
