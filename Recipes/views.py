@@ -1,9 +1,10 @@
-from django.views.generic import ListView, CreateView, DetailView
+from django.views.generic import ListView, CreateView
+from django.views.generic.edit import FormView
+# My forms/models
 from .models import Recipe
 from Comments.models import Comment
 from .forms import CreateRecipeForm
 from Comments.forms import CreateCommentForm
-from django.views.generic.edit import FormView
 
 # Create your views here.
 
