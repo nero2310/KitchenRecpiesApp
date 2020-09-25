@@ -1,8 +1,8 @@
-from django.shortcuts import render
 from django.views.generic import ListView, CreateView, DetailView
-from .models import Recipe,Comment
-from .forms import CreateRecipeForm,CreateCommentForm
-from  django.shortcuts import redirect
+from .models import Recipe
+from Comments.models import Comment
+from .forms import CreateRecipeForm
+from Comments.forms import CreateCommentForm
 from django.views.generic.edit import FormView
 
 # Create your views here.
@@ -25,7 +25,7 @@ class ShowRecipe(FormView):
     success_url = '/recipes'
 
     def get_object(self):
-        return Recipe.objects.filter(pk=self.kwargs['pk'])
+        return Recipe.objects.get(pk=self.kwargs['pk'])
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
