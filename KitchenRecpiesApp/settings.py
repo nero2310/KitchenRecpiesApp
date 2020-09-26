@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Recipes',
     'Comments',
+    'user_auth',
 ]
 
 MIDDLEWARE = [
