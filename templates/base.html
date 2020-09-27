@@ -17,6 +17,7 @@
     {% else %}
         <p>Welcome, new user. Please log in.</p>
     {% endif %}
+    <button onclick="location.href='{% url "logout" %}'">Logout</button>
 {% endblock %}
 {% block content %}
 {% endblock %}
