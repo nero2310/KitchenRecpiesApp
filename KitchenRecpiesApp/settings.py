@@ -80,7 +80,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'KitchenRecipesApp',
         'USER': 'postgres',
-        'PASSWORD': environ['POSTGRES_PASSWORD'],
+        'PASSWORD': environ.get('POSTGRES_PASSWORD'),
         'HOST': 'localhost'
     }
 }
