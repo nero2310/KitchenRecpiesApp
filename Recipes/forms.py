@@ -6,5 +6,6 @@ class CreateRecipeForm(forms.ModelForm):
     class Meta:
         model = Recipe
         fields = ['name', 'author', 'ingredients']
+        exclude = ['author']
 
 
