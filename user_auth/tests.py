@@ -1,4 +1,5 @@
 from django.test import TestCase,Client,override_settings,RequestFactory
+from django.contrib import auth
 from django.contrib.auth.models import User
 
 from os import environ
@@ -6,6 +7,7 @@ from os import environ
 from .views import UserLogin
 
 # Create your tests here.
+
 
 class LoginTestCase(TestCase):
     def setUp(self):
@@ -18,4 +20,5 @@ class LoginTestCase(TestCase):
         request.user = self.user
         view = UserLogin()
         view.setup(request)
-
+        assert self.client.session['_auth_user_id']
+        
