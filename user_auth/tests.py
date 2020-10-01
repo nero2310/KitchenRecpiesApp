@@ -21,4 +21,4 @@ class LoginTestCase(TestCase):
         view = UserLogin()
         view.setup(request)
         assert self.client.session['_auth_user_id']
-        
+
