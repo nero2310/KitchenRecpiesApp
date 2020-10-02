@@ -1,5 +1,6 @@
 from django.core.exceptions import ObjectDoesNotExist
 from django.http import Http404
+from django.shortcuts import redirect
 
 from django.views.generic import ListView, CreateView
 from django.views.generic.edit import FormView
@@ -21,6 +22,16 @@ class CreateRecipe(CreateView):
     form_class = CreateRecipeForm
     success_url = "/recipes/"
     template_name = "Recipes/create_recipe_form.html"
+    
+    def get_context_data(self, **kwargs):
+        context = super(CreateRecipe, self).get_context_data()
+        context["author"] = self.request.user
+        return context
+        
+    def form_valid(self, form):
+        form.author = self.get_context_data()["author"]
+        form.save()
+        return redirect('Recipes:CreateRecipe')
 
 
 class ShowRecipe(FormView):
