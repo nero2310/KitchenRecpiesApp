@@ -8,7 +8,7 @@ class Recipe(models.Model):
     name = models.CharField(max_length=200, blank=False,db_index=True)
     prepare_dish_recipe = models.TextField(max_length=2000,blank=False)
     times_visited = models.IntegerField(default=0,blank=0)
-    recipe_from = models.URLField()
+    recipe_from = models.URLField(blank=True)
     create_date = models.DateTimeField(auto_now_add=True)
     modify_date = models.DateTimeField(auto_now=True)
     author = models.CharField(max_length=200)  # toDo If user aren't specify set user name to Anonymous

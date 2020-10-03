@@ -1,6 +1,7 @@
 from django.core.exceptions import ObjectDoesNotExist
 from django.http import Http404
 from django.shortcuts import redirect
+from django.urls import reverse
 
 from django.views.generic import ListView, CreateView
 from django.views.generic.edit import FormView
@@ -41,7 +42,9 @@ class CreateRecipe(CreateView):
 class ShowRecipe(FormView):
     template_name = "Recipes/show_recipe.html"
     form_class = CreateCommentForm
-    success_url = '/recipes'
+
+    def get_success_url(self):
+        return reverse("Recipes:ShowRecipe",kwargs={"pk" : self.kwargs['pk']})
 
     def get_object(self):
         try:
