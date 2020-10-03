@@ -25,13 +25,17 @@ class CreateRecipe(CreateView):
     
     def get_context_data(self, **kwargs):
         context = super(CreateRecipe, self).get_context_data()
-        context["author"] = self.request.user
         return context
         
     def form_valid(self, form):
-        form.author = self.get_context_data()["author"]
+        form = form.save(commit=False)
+        form.author = self.get_current_user
         form.save()
         return redirect('Recipes:CreateRecipe')
+
+    @property
+    def get_current_user(self):
+        return self.request.user
 
 
 class ShowRecipe(FormView):
