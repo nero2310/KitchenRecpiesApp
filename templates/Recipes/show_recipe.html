@@ -20,6 +20,10 @@
     <br>
     {% for comment in comments %}
         {{ comment.content }}
+        {{ comment.create_date }}
+        {{ comment.author }}
+        {{ comment.up_vote }}
+        {{ comment.down_vote }}
         <br>
     {% endfor %}
 {% endblock %}
