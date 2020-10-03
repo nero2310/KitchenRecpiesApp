@@ -7,6 +7,7 @@ from django.contrib.postgres.fields import ArrayField
 class Recipe(models.Model):
     name = models.CharField(max_length=200, blank=False,db_index=True)
     prepare_dish_recipe = models.TextField(max_length=2000,blank=False)
+    times_visited = models.IntegerField(default=0,blank=0)
     recipe_from = models.URLField()
     create_date = models.DateTimeField(auto_now_add=True)
     modify_date = models.DateTimeField(auto_now=True)
