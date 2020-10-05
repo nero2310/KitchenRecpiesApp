@@ -16,7 +16,10 @@ pip3 -r requirements.txt
 Create file .env
 File .env content:
 ```env
+POSGRES_USER=postgres
 POSTGRES_PASSWORD=YourDatabasePassword
+POSTGRES_PORT=5432
+POSTGRES_HOST=localhost
 ```
 Initialize docker database and Django server
 ```docker
