@@ -48,10 +48,10 @@ class ShowRecipe(FormView):
 
     def get_object(self):
         try:
-            object = Recipe.objects.get(pk=self.kwargs['pk'])
+            recipe = Recipe.objects.get(pk=self.kwargs['pk'])
         except ObjectDoesNotExist:
             raise Http404(f"Recipe {self.kwargs['pk']} doesn't exist")
-        return object
+        return recipe
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
