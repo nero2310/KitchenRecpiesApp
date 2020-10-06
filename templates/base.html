@@ -9,15 +9,25 @@
     <title>Kitchen Recipes - {{ title }}</title>
     {% endif %}
     {% endblock %}
+    {% block css-styles %}
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'base/base.css' %}">
+    {% endblock %}
 </head>
 <body>
 {% block navbar %}
+    <ul class="navbar">
     {% if user.is_authenticated %}
         <p>Welcome, {{ user.get_username }}. Thanks for logging in.</p>
     {% else %}
         <p>Welcome, new user. Please log in.</p>
     {% endif %}
-    <button onclick="location.href='{% url "logout" %}'">Logout</button>
+    {% if user.is_authenticated %}
+    <ul><button onclick="location.href='{% url "logout" %}'">Logout</button></ul>
+    {% else %}
+    <ul><button onclick="location.href='{% url "login" %}'">Login</button></ul>
+    {% endif %}
+    </div>
 {% endblock %}
 {% block content %}
 {% endblock %}
