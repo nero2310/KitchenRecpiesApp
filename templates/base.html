@@ -16,17 +16,18 @@
 </head>
 <body>
 {% block navbar %}
-    <ul class="navbar">
+    <div class="navbar">
     {% if user.is_authenticated %}
-        <p>Welcome, {{ user.get_username }}. Thanks for logging in.</p>
+        Welcome, {{ user.get_username }}. Thanks for logging in.
     {% else %}
-        <p>Welcome, new user. Please log in.</p>
+        Welcome, new user. Please log in.
     {% endif %}
     {% if user.is_authenticated %}
-    <ul><button onclick="location.href='{% url "logout" %}'">Logout</button></ul>
+    <a href="{% url "logout" %}">Logout</a>
     {% else %}
-    <ul><button onclick="location.href='{% url "login" %}'">Login</button></ul>
+    <a href="{% url "login" %}">Login</a>
     {% endif %}
+    <hr>
     </div>
 {% endblock %}
 {% block content %}

@@ -1,7 +1,13 @@
 .navbar{
     position: relative;
+    height: 5vh;
 }
-.navbar button{
+.navbar a{
     position: relative;
     float: right;
+}
+.navbar hr{
+    margin-top: 1.75vh;
+    border: 1px solid black;
+    border-radius: 5px;
 }
