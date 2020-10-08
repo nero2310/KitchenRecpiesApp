@@ -11,3 +11,12 @@
     border: 1px solid black;
     border-radius: 5px;
 }
+.footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 7.5vh;
+}
+.footer hr{
+    border: 1px solid black;
+}
