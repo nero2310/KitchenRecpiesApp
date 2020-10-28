@@ -15,14 +15,18 @@
 </head>
 <body>
 {% block navbar %}
-    <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-center"
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary justify-content-around">
+    <div class="navbar brand">
+        Coś
+    </div>
     {% if user.is_authenticated %}
         <p>Welcome, {{ user.get_username }}. Thanks for logging in.</p>
     {% else %}
         <p>Welcome, new user. Please log in.</p>
     {% endif %}
-    <button onclick="location.href='{% url "logout" %}'">Logout</button>
+        <button onclick="location.href='{% url "logout" %}'">Logout</button>
     </nav>
+
 {% endblock %}
 {% block content %}
 {% endblock %}
